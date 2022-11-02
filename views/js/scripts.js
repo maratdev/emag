@@ -330,3 +330,8 @@ if (document.querySelector('.shop-page')) {
   });
 
 }
+
+$('.arrow').on('click', function(){
+  $(this).toggleClass('up');
+  $(this).nextUntil('li').slideToggle();
+});

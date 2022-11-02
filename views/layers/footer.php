@@ -9,7 +9,7 @@
                     <a class="main-menu__item" href="#">Главная</a>
                 </li>
                 <li>
-                    <a class="main-menu__item" href="#">Новинки</a>
+                    <a class="main-menu__item" href="#">Новинки</a> 
                 </li>
                 <li>
                     <a class="main-menu__item">Sale</a>
@@ -24,5 +24,6 @@
         </address>
     </div>
 </footer>
+<script src="/views/libs/accordion/jquery.cookie.js" defer=""></script>
 </body>
 </html>

@@ -10,18 +10,6 @@ function getConnection() {
     return $connect;
 }
 
-function getBd($query){
-    $res =[];
-    $arr = mysqli_query(getConnection(), $query);
-    while (($row = mysqli_fetch_assoc($arr)) != false){
-        $res[] = $row;
-    }
-    return $res;
-}
 
-function printR ($array){
-    echo '<pre>';
-    print_r($array);
-    echo '</pre>';
 
-}
+

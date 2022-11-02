@@ -1,31 +1,37 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
 include $_SERVER['DOCUMENT_ROOT'].'/Bd.php';
+include $_SERVER['DOCUMENT_ROOT'].'/functions.php';
+include $_SERVER['DOCUMENT_ROOT'].'/catalog.php';
 
-$query = 'SELECT * FROM `groups`';
 
-$menu = getBd($query);
-printR($menu);
+?>
 
-//HEAD
-include $_SERVER['DOCUMENT_ROOT'].'/views/layers/head.php';
-//body, header
-include $_SERVER['DOCUMENT_ROOT'].'/views/layers/header.php'; ?>
+<?php
+    //phpinfo();
+    include $_SERVER['DOCUMENT_ROOT'].'/views/layers/head.php';
+    include $_SERVER['DOCUMENT_ROOT'].'/views/layers/header.php';
+?>
+
 <main class="shop-page">
     <?php //slider
-    include $_SERVER['DOCUMENT_ROOT'].'/views/layers/slider.php'; ?>
-  <section class="shop container">
+    include $_SERVER['DOCUMENT_ROOT'].'/views/layers/slider.php';
+    ?>
+  <section class="shop container_e">
       <?php
-      //slider
       include $_SERVER['DOCUMENT_ROOT'].'/views/layers/shop__filter.php';
-      //shop__wrapper
-      include $_SERVER['DOCUMENT_ROOT'].'/views/layers/shop__wrapper.php'; ?>
+      include $_SERVER['DOCUMENT_ROOT'].'/views/layers/shop__wrapper.php';
+      ?>
 
   </section>
   <section class="shop-page__order" hidden="">
     <div class="shop-page__wrapper">
       <h2 class="h h--1">Оформление заказа</h2>
-      <form action="#" method="post" class="custom-form js-order">
+      <form action="#" method="post" class="custom-foЁ1rm js-order">
         <fieldset class="custom-form__group">
           <legend class="custom-form__title">Укажите свои личные данные</legend>
           <p class="custom-form__info">

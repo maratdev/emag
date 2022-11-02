@@ -54,7 +54,7 @@ a {
   a:focus {
     outline: none; }
 
-.container {
+.container_e  {
   margin: 0 auto;
   padding: 0 15px;
   width: 1200px; }
@@ -195,14 +195,14 @@ a {
       top: 50%;
       -webkit-transform: translateY(-50%);
               transform: translateY(-50%);
-      right: 20px;
+
+      right: 25px;
       width: 12px;
       height: 6px;
       background: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0.353553' y1='0.646447' x2='6.35355' y2='6.64645' stroke='%23E45446'/%3E%3Cline y1='-0.5' x2='8.48528' y2='-0.5' transform='matrix(-0.707107 0.707107 0.707107 0.707107 12 1)' stroke='%23E45446'/%3E%3C/svg%3E%0A") no-repeat center;
-      background-size: cover; }
+      background-size: cover;
+    }
   .custom-form__select {
-    border: 0;
-    padding: 0;
     font: inherit;
     background-color: transparent;
     width: 100%;
@@ -395,10 +395,40 @@ a {
     margin-bottom: 25px;
     color: #393939;
     font-weight: 700; }
-  .filter__list {
+
+.filter__list {
     margin: 0;
     padding: 0;
     list-style: none; }
+
+.filter__list li {
+  list-style: none;
+}
+
+.filter__list li ul li {
+  margin-top: 5px;
+  margin-bottom: 0 !important;
+  margin-left: -10px;
+  list-style: none;
+  position: relative;
+  line-height: 1.4;
+}
+.filter__list li ul li::before {
+  content: "";
+
+  position: absolute;
+  top: 0.75em;
+  left: -0.5em;
+
+  display: inline-block;
+  width: 0.34em;
+  height: 0.34em;
+
+  background-color: lightgray;
+  border-radius: 50%;
+
+  transform: translate(0%, -50%);
+}
     .filter__list li:not(:last-child) {
       margin-bottom: 15px; }
     .filter__list-item {
@@ -471,10 +501,8 @@ a {
   .shop__sorting {
     display: flex;
     align-items: center; }
-    .shop__sorting-item {
-      width: 210px; }
-      .shop__sorting-item:not(:last-child) {
-        margin-right: 10px; }
+
+
     .shop__sorting-res {
       margin: 0;
       margin-left: auto;
@@ -484,7 +512,7 @@ a {
   .shop__list {
     display: flex;
     flex-wrap: wrap;
-    padding-top: 40px; }
+    padding-top: 10px; }
   .shop__item {
     margin-bottom: 50px; }
   .shop__item:not(:nth-child(3n)) {
@@ -584,6 +612,7 @@ a {
     letter-spacing: -.5px; }
 
 .paginator {
+  min-width: 300px;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -603,21 +632,25 @@ a {
     transition: all 300ms; }
     .paginator__item[href] {
       border-color: #C2C2C2;
-      color: #787B7F; }
+      color: #787B7F;
+    margin-right: 5px;
+    }
       .paginator__item[href]:hover, .paginator__item[href]:focus {
         color: #fff;
         border-color: #E45446;
         background-color: #E45446; }
     .paginator__item:not([href]) {
+      margin-right: 5px;
       color: #fff;
       background-color: #393939;
-      cursor: default; }
+      cursor: default;
+    }
 
 .page-footer {
   padding-top: 25px;
   padding-bottom: 25px;
   background-color: #EFEFEF; }
-  .page-footer .container {
+  .page-footer .container_e {
     display: flex;
     align-items: center; }
   .page-footer__logo {
@@ -920,3 +953,57 @@ a {
     .order-item__toggle--active {
       -webkit-transform: rotate(180deg);
               transform: rotate(180deg); }
+
+
+
+
+
+
+ul {
+  list-style-type: none;
+  position: relative;
+  width: 120px;
+}
+
+ul li {
+  padding: 2px;
+}
+
+ul li ul {
+  display: none;
+  text-transform: capitalize;
+}
+
+.arrow {
+  height: 20px;
+  width: 25px;
+  position: absolute;
+  vertical-align: middle;
+  cursor: pointer;
+}
+
+.arrow:before {
+  content: '';
+  top: 50%;
+  position: absolute;
+  right: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  width: 12px;
+  height: 6px;
+  background: url("data:image/svg+xml,%3Csvg width='12' height='7' viewBox='0 0 12 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cline x1='0.353553' y1='0.646447' x2='6.35355' y2='6.64645' stroke='%23E45446'/%3E%3Cline y1='-0.5' x2='8.48528' y2='-0.5' transform='matrix(-0.707107 0.707107 0.707107 0.707107 12 1)' stroke='%23E45446'/%3E%3C/svg%3E%0A") no-repeat center;
+  background-size: cover;
+}
+
+.arrow.up:before {
+  transform: rotate(180deg);
+}
+
+
+.breadcrumb {
+  background-color: #fff !important;
+}
+.breadcrumb li {
+  font-size: 12px;
+  color: #888;
+}

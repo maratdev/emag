@@ -1,92 +1,58 @@
 <div class="shop__wrapper">
+
     <section class="shop__sorting">
-        <div class="shop__sorting-item custom-form__select-wrapper">
-            <select class="custom-form__select" name="category">
-                <option hidden="">Сортировка</option>
-                <option value="price">По цене</option>
-                <option value="name">По названию</option>
-            </select>
+        <div class="container">
+            <div class="row row-cols-3">
+                <div class="shop__sorting-item custom-form__select-wrapper col">
+                    <select class="custom-form__select" name="category">
+                        <option hidden="">Сортировка</option>
+                        <option value="price">По цене</option>
+                        <option value="name">По названию</option>
+                    </select>
+                </div>
+            <div class="shop__sorting-item custom-form__select-wrapper col">
+                <select class="custom-form__select" name="prices">
+                    <option hidden="">Порядок</option>
+                    <option value="all">По возрастанию</option>
+                    <option value="woman">По убыванию</option>
+                </select>
+            </div>
+                <p class="shop__sorting-res col">Найдено <span class="res-sort">858</span> моделей</p>
+                <div class="shop__sorting-item col-md-auto">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <?= isset($breadcrumbs) ? $breadcrumbs : '' ?>
+                            <hr>
+                            <hr>
+
+                        </ol>
+                    </nav>
+                </div>
+            </div>
         </div>
-        <div class="shop__sorting-item custom-form__select-wrapper">
-            <select class="custom-form__select" name="prices">
-                <option hidden="">Порядок</option>
-                <option value="all">По возрастанию</option>
-                <option value="woman">По убыванию</option>
-            </select>
-        </div>
-        <p class="shop__sorting-res">Найдено <span class="res-sort">858</span> моделей</p>
     </section>
     <section class="shop__list">
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-1.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-2.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-3.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-4.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-5.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-6.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-7.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-8.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
-        <article class="shop__item product" tabindex="0">
-            <div class="product__image">
-                <img src="views/img/products/product-9.jpg" alt="product-name">
-            </div>
-            <p class="product__name">Платье со складками</p>
-            <span class="product__price">2 999 руб.</span>
-        </article>
+        <?php
+        //var_dump($ids);
+        ?>
+        <?php if(!empty($products)): ?>
+            <?php foreach ($products as $product): ?>
+                <article class="shop__item product" tabindex="0">
+                <div class="product__image">
+                    <img src="<?=$product['img']?>" alt="product-name">
+                </div>
+                <p class="product__name"><?=$product['title']?></p>
+                <span class="product__price"><?=$product['price']?> руб.</span>
+                </article>
+            <?php endforeach;?>
+        <?php else: ?>
+            <p>Здесь товаров нет!</p>
+        <?php endif;?>
     </section>
+
     <ul class="shop__paginator paginator">
         <li>
-            <a class="paginator__item">1</a>
-        </li>
-        <li>
-            <a class="paginator__item" href="">2</a>
+            <?=$pagination?>
         </li>
     </ul>
 </div>
